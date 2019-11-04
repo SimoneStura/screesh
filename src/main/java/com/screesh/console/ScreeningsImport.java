@@ -5,6 +5,9 @@ import com.screesh.model.Cinema;
 import com.screesh.model.FilmFestival;
 import com.screesh.model.Movie;
 import com.screesh.model.Screening;
+import com.screesh.model.dto.FestivalSelectionDto;
+import com.screesh.model.dto.MovieDto;
+import com.screesh.model.dto.ScreeningDto;
 
 import java.io.File;
 import java.io.IOException;

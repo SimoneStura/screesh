@@ -12,9 +12,9 @@ public class Screening implements PlacedOverTime<Screening> {
     private LocalDateTime endTime;
     private Cinema cinema;
     private String theater;
+    private int priority;
     
     //TODO: spostare queste info dove compete, non bisogna sovraccaricare una classe del model di responsabilità
-    private int priority;
     private int minutesToWait;
     
     public Screening(Movie screened, LocalDateTime startTime, Cinema cinema, String theater) {

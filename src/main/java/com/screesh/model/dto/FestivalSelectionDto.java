@@ -1,4 +1,4 @@
-package com.screesh.console;
+package com.screesh.model.dto;
 
 import java.util.List;
 
