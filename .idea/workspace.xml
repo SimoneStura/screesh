@@ -2,13 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="917349ae-47df-404b-8eb1-3c19f03aeb9b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/screesh/choosinghelper/Action.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/screesh/choosinghelper/ChoiceMade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/screesh/choosinghelper/ChoiceMade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/screesh/choosinghelper/ScheduleChooser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/screesh/choosinghelper/ScheduleChooser.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/screesh/console/FestivalSelectionDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/screesh/model/dto/FestivalSelectionDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/screesh/console/MovieDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/screesh/model/dto/MovieDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/screesh/console/ScreeningDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/screesh/model/dto/ScreeningDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/screesh/console/ScreeningsImport.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/screesh/console/ScreeningsImport.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/screesh/model/Screening.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/screesh/model/Screening.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,8 +33,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -57,7 +55,9 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1T1ckYXKOQuQqKt3ciW3SZIHiKm" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -85,6 +85,7 @@
       <recent name="" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.screesh.choosinghelper" />
       <recent name="com.screesh.console" />
     </key>
   </component>
@@ -155,7 +156,9 @@
       <workItem from="1572702487812" duration="12616000" />
       <workItem from="1572769480783" duration="29908000" />
       <workItem from="1572849469392" duration="983000" />
-      <workItem from="1572906758230" duration="3145000" />
+      <workItem from="1572906758230" duration="3192000" />
+      <workItem from="1572980368299" duration="10062000" />
+      <workItem from="1573161738419" duration="1093000" />
     </task>
     <task id="LOCAL-00001" summary="asdasd">
       <created>1572850045795</created>
@@ -164,7 +167,21 @@
       <option name="project" value="LOCAL" />
       <updated>1572850045795</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="I don't know">
+      <created>1572910712563</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1572910712563</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Me neither">
+      <created>1572995310361</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1572995310361</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -184,8 +201,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="asdasd" />
-    <option name="LAST_COMMIT_MESSAGE" value="asdasd" />
+    <MESSAGE value="I don't know" />
+    <MESSAGE value="Me neither" />
+    <option name="LAST_COMMIT_MESSAGE" value="Me neither" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

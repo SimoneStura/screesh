@@ -24,8 +24,12 @@ public class ScheduleChooser {
         
         List<HashSet<Movie>> solutionsForMovies = buildSolutionsForMovies(solutions);
     
-        PriorityQueue<MovieCounting> mostExcludedMovies = new PriorityQueue<>(allMovies.size());
+        List<ChoiceMade> choices = new ArrayList<>();
+        for (Movie movie : allMovies) {
+            choices.add(new ChoiceMade(movie));
+        }
         
+        PriorityQueue<MovieCounting> mostExcludedMovies = new PriorityQueue<>(allMovies.size());
         for (Movie movie : allMovies) {
             MovieCounting exclusionsCounter = new MovieCounting(movie);
             for (HashSet<Movie> moviesInSolution : solutionsForMovies) {
@@ -34,8 +38,6 @@ public class ScheduleChooser {
             }
             mostExcludedMovies.add(exclusionsCounter);
         }
-        
-        List<ChoiceMade> choices = new ArrayList<>();
         
         return choices;
     }
