@@ -4,20 +4,20 @@ import com.screesh.model.Movie;
 
 import java.util.List;
 
-public interface ChoiceMaker {
+public interface UserAsker {
     /**
      *
      * @param toBeExcluded
      * @return
      */
-    boolean confirmExclusion(List<Movie> toBeExcluded);
+    boolean confirmExclusion(Movie toBeExcluded);
 
     /**
      *
      * @param toChoose
      * @return the index of the movie to exclude
      */
-    int chooseOneToExclude(List<Movie> toChoose);
+    int chooseOneToExclude(List<MovieCounting> toChoose);
 
 
 }

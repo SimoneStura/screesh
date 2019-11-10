@@ -2,6 +2,7 @@ package com.screesh.console;
 
 import com.screesh.TestCommonData;
 import com.screesh.TestUtils;
+import com.screesh.choosinghelper.MovieCounting;
 import com.screesh.model.Movie;
 import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
@@ -23,7 +24,7 @@ class ChooseWithTerminalTest {
     @Test
     void chooseOneToExclude_correctInput() {
         //given
-        ArrayList<Movie> movies = TestCommonData.createMovieList(2);
+        ArrayList<MovieCounting> movies = TestCommonData.createMovieCountingList(2);
         TestUtils.fakeUserInput(String.valueOf(1));
 
         //when
@@ -36,7 +37,7 @@ class ChooseWithTerminalTest {
     @Test
     void chooseOneToExclude_wrongInputType() {
         //given
-        ArrayList<Movie> movies = TestCommonData.createMovieList(2);
+        ArrayList<MovieCounting> movies = TestCommonData.createMovieCountingList(2);
         TestUtils.fakeUserInput("stringValue");
 
         //when
@@ -49,7 +50,7 @@ class ChooseWithTerminalTest {
     @Test
     void chooseOneToExclude_wrongInput() {
         //given
-        ArrayList<Movie> movies = TestCommonData.createMovieList(2);
+        ArrayList<MovieCounting> movies = TestCommonData.createMovieCountingList(2);
         TestUtils.fakeUserInput(String.valueOf(3));
 
         //when
@@ -62,11 +63,11 @@ class ChooseWithTerminalTest {
     @Test
     void confirmExclusion_correctPositiveInput() {
         //given
-        ArrayList<Movie> movies = TestCommonData.createMovieList(1);
+        Movie toExclude = TestCommonData.createMovie("mov");
         TestUtils.fakeUserInput("yes");
 
         //when
-        boolean result = choose.confirmExclusion(movies);
+        boolean result = choose.confirmExclusion(toExclude);
 
         //then
         Assert.assertTrue(result);
@@ -75,11 +76,11 @@ class ChooseWithTerminalTest {
     @Test
     void confirmExclusion_correctNegativeInput() {
         //given
-        ArrayList<Movie> movies = TestCommonData.createMovieList(3);
+        Movie toExclude = TestCommonData.createMovie("mov");
         TestUtils.fakeUserInput("no");
 
         //when
-        boolean result = choose.confirmExclusion(movies);
+        boolean result = choose.confirmExclusion(toExclude);
 
         //then
         Assert.assertFalse(result);
@@ -88,11 +89,11 @@ class ChooseWithTerminalTest {
     @Test
     void confirmExclusion_correctShortInput() {
         //given
-        ArrayList<Movie> movies = TestCommonData.createMovieList(1);
+        Movie toExclude = TestCommonData.createMovie("mov");
         TestUtils.fakeUserInput("y");
 
         //when
-        boolean result = choose.confirmExclusion(movies);
+        boolean result = choose.confirmExclusion(toExclude);
 
         //then
         Assert.assertTrue(result);
@@ -101,21 +102,21 @@ class ChooseWithTerminalTest {
     @Test
     void confirmExclusion_wrongInput() {
         //given
-        ArrayList<Movie> movies = TestCommonData.createMovieList(2);
+        Movie toExclude = TestCommonData.createMovie("mov");
         TestUtils.fakeUserInput("qwerty");
 
         //when
-        Assertions.assertThrows(NoSuchElementException.class, () -> choose.confirmExclusion(movies));
+        Assertions.assertThrows(NoSuchElementException.class, () -> choose.confirmExclusion(toExclude));
     }
 
     @Test
     void confirmExclusion_inputRepeated() {
         //given
-        ArrayList<Movie> movies = TestCommonData.createMovieList(1);
+        Movie toExclude = TestCommonData.createMovie("mov");
         TestUtils.fakeUserInput("qwerty", "yes");
 
         //when
-        boolean result = choose.confirmExclusion(movies);
+        boolean result = choose.confirmExclusion(toExclude);
 
         //then
         Assert.assertTrue(result);

@@ -1,6 +1,6 @@
 package com.screesh.solver;
 
-public class SeekerForTheBest {
+class SeekerForTheBest {
     private SolutionAnalyzer analyzer;
 
     public SeekerForTheBest(SolutionAnalyzer analyzer) {
@@ -8,6 +8,6 @@ public class SeekerForTheBest {
     }
 
     public boolean isWorthToAdd(PlacedOverTime pot) {
-        return false;
+        return true;
     }
 }

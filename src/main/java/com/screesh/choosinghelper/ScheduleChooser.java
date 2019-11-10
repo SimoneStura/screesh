@@ -2,16 +2,20 @@ package com.screesh.choosinghelper;
 
 import com.screesh.model.Movie;
 import com.screesh.model.Screening;
+import org.junit.Assert;
 
 import java.util.*;
 
+import static org.hamcrest.Matchers.greaterThan;
+import static org.hamcrest.Matchers.hasSize;
+
 public class ScheduleChooser {
-    private ChoiceMaker choiceMaker;
+    private UserAsker userAsker;
     private Set<Movie> allMovies;
     
-    public ScheduleChooser(HashSet<Movie> allMovies, ChoiceMaker choiceMaker) {
+    public ScheduleChooser(HashSet<Movie> allMovies, UserAsker userAsker) {
         this.allMovies = allMovies;
-        this.choiceMaker = choiceMaker;
+        this.userAsker = userAsker;
     }
     
     /**
@@ -23,20 +27,42 @@ public class ScheduleChooser {
         assert solutions.size() > 0;
         
         List<HashSet<Movie>> solutionsForMovies = buildSolutionsForMovies(solutions);
-    
-        List<ChoiceMade> choices = new ArrayList<>();
-        for (Movie movie : allMovies) {
-            choices.add(new ChoiceMade(movie));
-        }
         
         PriorityQueue<MovieCounting> mostExcludedMovies = new PriorityQueue<>(allMovies.size());
         for (Movie movie : allMovies) {
-            MovieCounting exclusionsCounter = new MovieCounting(movie);
+            int counting = 0;
             for (HashSet<Movie> moviesInSolution : solutionsForMovies) {
                 if(!moviesInSolution.contains(movie))
-                    exclusionsCounter.counting++;
+                    counting++;
             }
+            MovieCounting exclusionsCounter = new MovieCounting(movie, counting);
             mostExcludedMovies.add(exclusionsCounter);
+        }
+    
+        List<ChoiceMade> choices = new ArrayList<>();
+        ArrayList<MovieCounting> notAlwaysExcluded = new ArrayList<>();
+        boolean mustRepeatSolutionFinding = false;
+        while (!mostExcludedMovies.isEmpty() && !mustRepeatSolutionFinding) {
+            MovieCounting excludedMovie = mostExcludedMovies.poll();
+            
+            Assert.assertTrue(excludedMovie.getCounting() <= solutionsForMovies.size());
+            if(excludedMovie.getCounting() == solutionsForMovies.size()) {
+                //ask user if exclude or keep this movie
+                boolean excluded = userAsker.confirmExclusion(excludedMovie.getValue());
+                ChoiceMade currentChoice = new ChoiceMade(excludedMovie.getValue(), excluded);
+                choices.add(currentChoice);
+                mustRepeatSolutionFinding = !excluded;
+            } else {
+                notAlwaysExcluded.add(excludedMovie);
+            }
+        }
+        
+        if(notAlwaysExcluded.size() > 0) {
+            int indexToExclude = userAsker.chooseOneToExclude(notAlwaysExcluded);
+            if(indexToExclude >= 0 && indexToExclude < notAlwaysExcluded.size()) {
+                ChoiceMade choice = new ChoiceMade(notAlwaysExcluded.get(indexToExclude).getValue(), true);
+                choices.add(choice);
+            }
         }
         
         return choices;
@@ -55,17 +81,4 @@ public class ScheduleChooser {
         return solutionsForMovies;
     }
     
-    private static class MovieCounting implements Comparable<MovieCounting> {
-        Movie value;
-        int counting;
-        
-        MovieCounting(Movie value) {
-            this.value = value;
-            counting = 0;
-        }
-        
-        public int compareTo(MovieCounting o) {
-            return Integer.compare(this.counting, o.counting);
-        }
-    }
 }

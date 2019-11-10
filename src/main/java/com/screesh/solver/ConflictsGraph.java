@@ -1,23 +1,39 @@
 package com.screesh.solver;
 
+import org.junit.Assert;
+
+import java.util.ArrayList;
 import java.util.SortedSet;
+import java.util.Stack;
 
-public class ConflictsGraph<T extends PlacedOverTime<T>> {
-    private SortedSet<Node<T>> conflictualItems;
-
-
-    private static class Node<T extends Comparable<T>> implements Comparable<Node<T>> {
-        T value;
-        boolean obscured;
-        boolean chosen;
-
-        Node(T value) {
-            this.value = value;
+class ConflictsGraph<T extends PlacedOverTime<T>> extends Graph<ConflictualItem<T>> {
+    private Stack<ConflictGraphAction<T>> choosingActions;
+    
+    ConflictsGraph() {
+        choosingActions = new Stack<>();
+    }
+    
+    public void choose(ConflictualItem<T> node) {
+        Assert.assertFalse(node.isObscured());
+        
+        node.setChosen(true);
+        ArrayList<ConflictualItem<T>> obscuredItems = new ArrayList<>();
+        for (ConflictualItem<T> conflict : super.edges.get(node)) {
+            if(!conflict.isObscured()) {
+                conflict.setObscured(true);
+                obscuredItems.add(conflict);
+            }
         }
-
-        @Override
-        public int compareTo(Node<T> o) {
-            return value.compareTo(o.value);
+        choosingActions.push(new ConflictGraphAction<T>(node, obscuredItems));
+    }
+    
+    public void rollbackOfChoosing() {
+        if(choosingActions.isEmpty())
+            return;
+        ConflictGraphAction<T> lastAction = choosingActions.pop();
+        lastAction.getMainItem().setObscured(true);
+        for(ConflictualItem<T> previouslyObscured : lastAction.getInvolvedItems()) {
+            previouslyObscured.setObscured(false);
         }
     }
 }

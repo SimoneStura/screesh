@@ -4,22 +4,18 @@ import com.screesh.model.Movie;
 
 public class ChoiceMade {
     private Movie movie;
-    private Action chosenAction;
+    private boolean excluded;
     
-    public ChoiceMade(Movie movie) {
+    ChoiceMade(Movie movie, boolean excluded) {
         this.movie = movie;
-        this.chosenAction = Action.PENDING;
+        this.excluded = excluded;
     }
     
     public Movie getMovie() {
         return movie;
     }
     
-    public Action getChosenAction() {
-        return chosenAction;
-    }
-    
-    public void setChosenAction(Action chosenAction) {
-        this.chosenAction = chosenAction;
+    public boolean isExcluded() {
+        return excluded;
     }
 }
