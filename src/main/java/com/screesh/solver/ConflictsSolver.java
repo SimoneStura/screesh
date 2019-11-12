@@ -1,54 +1,103 @@
 package com.screesh.solver;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
-import java.util.SortedSet;
+import org.junit.Assert;
 
-public class ConflictsSolver<E extends PlacedOverTime<E>> {
-    private BnBSolution<E> branchNbound;
-    private ConflictsGraph<E> conflicts;
-    private SolutionAnalyzer analyzer;
-    private SeekerForTheBest seeker;
+import java.util.*;
+import java.util.stream.Collectors;
+
+public class ConflictsSolver<T extends PlacedOverTime<T>> {
+    private HashMap<T, ConflictualItem<T>> solutionItems;
+    private HashMap<T, HashSet<ConflictualItem<T>>> groupMembership;
+    private BnBSolution<T> branchAndBound;
+    private ConflictsGraph<T> conflicts;
+    private SolutionAnalyzer<T> analyzer;
+    private SeekerForTheBest<T> seeker;
+    private int numItems;
+    private int numGroups;
     
     public ConflictsSolver() {
+        solutionItems = new HashMap<>();
+        groupMembership = new HashMap<>();
+        numItems = 0;
+        numGroups = 0;
+        
         conflicts = new ConflictsGraph<>();
-        branchNbound = new BnBSolution<>(conflicts);
-        analyzer = new SolutionAnalyzer(conflicts);
-        seeker = new SeekerForTheBest(analyzer);
+        branchAndBound = new BnBSolution<>(conflicts);
+        analyzer = new SolutionAnalyzer<>(conflicts);
+        seeker = new SeekerForTheBest<>(analyzer);
     
-        branchNbound.addObserver(analyzer);
+        branchAndBound.addObserver(analyzer);
     }
     
     public int getNumItems() {
-        return 0;
+        return numItems;
     }
     
     public int getNumGroups() {
-        return 0;
+        return numGroups;
     }
     
-    public void addElement(E item) {}
+    public void addItem(T itemToAdd) {
+        addIfAbsent(itemToAdd);
+    }
     
-    public void addGroup(Collection<E> items) {}
+    public void addGroup(Collection<T> itemsToAdd) {
+        HashSet<ConflictualItem<T>> conflictualGroup = new HashSet<>(itemsToAdd.size());
+        for(T item : itemsToAdd) {
+            Assert.assertFalse(groupMembership.containsKey(item));
+            ConflictualItem<T> currentConflictual = addIfAbsent(item);
+            
+            for(ConflictualItem<T> brother : conflictualGroup) {
+                setConflict(currentConflictual, brother);
+            }
+            conflictualGroup.add(currentConflictual);
+            groupMembership.put(item, conflictualGroup);
+        }
+        
+        if(itemsToAdd.size() > 0) numGroups++;
+    }
     
-    public void setConflict(E item1, E item2) {}
+    private ConflictualItem<T> addIfAbsent(T itemToAdd) {
+        ConflictualItem<T> itemWithConflicts = new ConflictualItem<>(itemToAdd);
+        ConflictualItem<T> alreadyAdded = solutionItems.putIfAbsent(itemToAdd, itemWithConflicts);
     
-    public void mustIncludeOne(Collection<E> items) {}
+        if(alreadyAdded == null) {
+            conflicts.addVertex(itemWithConflicts);
+            alreadyAdded = itemWithConflicts;
+            numItems++;
+        }
+        
+        return alreadyAdded;
+    }
     
-    public boolean mustInclude(E toBeIncluded) {
-        return false;
+    public void setConflict(T item1, T item2) {
+        ConflictualItem<T> vertex1 = addIfAbsent(item1);
+        ConflictualItem<T> vertex2 = addIfAbsent(item2);
+        setConflict(vertex1, vertex2);
+    }
+    
+    private void setConflict(ConflictualItem<T> vertex1, ConflictualItem<T> vertex2) {
+        conflicts.addEdge(vertex1, vertex2);
+    }
+    
+    public boolean mustIncludeOne(SortedSet<T> items) {
+        items.forEach(this::addIfAbsent);
+        return seeker.mustIncludeOne(items);
+    }
+    
+    public boolean mustInclude(T toBeIncluded) {
+        return seeker.mustInclude(toBeIncluded);
     }
     
     public int bestResult() {
         return 0;
     }
     
-    public List<SortedSet<E>> allGoodSolutions() {
+    public List<SortedSet<T>> allGoodSolutions() {
         return null;
     }
     
-    public SortedSet<E> bestSolution() {
+    public SortedSet<T> bestSolution() {
         return null;
     }
 }
