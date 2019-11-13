@@ -1,5 +1,7 @@
 package com.screesh.solver;
 
+import java.util.Objects;
+
 public class ConflictualItem<T extends PlacedOverTime<T>> implements Comparable<ConflictualItem<T>> {
     private T item;
     private boolean chosen;
@@ -32,7 +34,20 @@ public class ConflictualItem<T extends PlacedOverTime<T>> implements Comparable<
         if(obscured)
             chosen = false;
     }
-
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof ConflictualItem)) return false;
+        ConflictualItem<?> that = (ConflictualItem<?>) o;
+        return item.equals(that.item);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(item);
+    }
+    
     @Override
     public int compareTo(ConflictualItem<T> o) {
         if(o == null)

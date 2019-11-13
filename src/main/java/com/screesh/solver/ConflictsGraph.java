@@ -2,9 +2,7 @@ package com.screesh.solver;
 
 import org.junit.Assert;
 
-import java.util.ArrayList;
-import java.util.SortedSet;
-import java.util.Stack;
+import java.util.*;
 
 class ConflictsGraph<T extends PlacedOverTime<T>> extends Graph<ConflictualItem<T>> {
     private Stack<ConflictGraphAction<T>> choosingActions;
@@ -35,5 +33,15 @@ class ConflictsGraph<T extends PlacedOverTime<T>> extends Graph<ConflictualItem<
         for(ConflictualItem<T> previouslyObscured : lastAction.getInvolvedItems()) {
             previouslyObscured.setObscured(false);
         }
+    }
+    
+    public Set<T> getObscuredItems() {
+        HashSet<T> obscuredOnes = new HashSet<>();
+        for(ConflictGraphAction<T> action : choosingActions) {
+            for(ConflictualItem<T> obscuredByAction : action.getInvolvedItems()) {
+                obscuredOnes.add(obscuredByAction.getItem());
+            }
+        }
+        return obscuredOnes;
     }
 }

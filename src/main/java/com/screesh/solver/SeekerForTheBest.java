@@ -6,17 +6,28 @@ import java.util.SortedSet;
 import java.util.TreeSet;
 
 class SeekerForTheBest<T extends PlacedOverTime<T>> {
-    private SolutionAnalyzer analyzer;
+    private SolutionAnalyzer<T> analyzer;
     private SortedSet<T> requiredItems;
     private ArrayList<SortedSet<T>> groupsToInclude;
     
-    SeekerForTheBest(SolutionAnalyzer analyzer) {
+    SeekerForTheBest(SolutionAnalyzer<T> analyzer) {
         this.analyzer = analyzer;
         requiredItems = new TreeSet<>();
         groupsToInclude = new ArrayList<>();
     }
     
-    boolean isWorthToAdd(T pot) {
+    boolean isWorthToContinue(SortedSet<ConflictualItem<T>> remainingItems) {
+        return isWorthToContinue(remainingItems, 0);
+    }
+    
+    boolean isWorthToContinue(SortedSet<ConflictualItem<T>> remainingItems, int recordTotMovies) {
+        long maximumAddable = remainingItems.stream()
+                .filter(x -> !x.isObscured())
+                .count();
+        return analyzer.getTotalItemsInSolution() + maximumAddable >= recordTotMovies;
+    }
+    
+    boolean isBestSolution() {
         return false;
     }
     

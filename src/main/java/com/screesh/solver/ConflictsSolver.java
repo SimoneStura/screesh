@@ -3,11 +3,11 @@ package com.screesh.solver;
 import org.junit.Assert;
 
 import java.util.*;
-import java.util.stream.Collectors;
 
 public class ConflictsSolver<T extends PlacedOverTime<T>> {
     private HashMap<T, ConflictualItem<T>> solutionItems;
     private HashMap<T, HashSet<ConflictualItem<T>>> groupMembership;
+    private TreeSet<ConflictualItem<T>> sortedSolutionItems;
     private BnBSolution<T> branchAndBound;
     private ConflictsGraph<T> conflicts;
     private SolutionAnalyzer<T> analyzer;
@@ -18,6 +18,7 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
     public ConflictsSolver() {
         solutionItems = new HashMap<>();
         groupMembership = new HashMap<>();
+        sortedSolutionItems = new TreeSet<>();
         numItems = 0;
         numGroups = 0;
         
@@ -62,6 +63,7 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
         ConflictualItem<T> alreadyAdded = solutionItems.putIfAbsent(itemToAdd, itemWithConflicts);
     
         if(alreadyAdded == null) {
+            sortedSolutionItems.add(itemWithConflicts);
             conflicts.addVertex(itemWithConflicts);
             alreadyAdded = itemWithConflicts;
             numItems++;
