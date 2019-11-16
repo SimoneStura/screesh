@@ -91,15 +91,12 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
         return seeker.mustInclude(toBeIncluded);
     }
     
+    // facciamo che non serve, altrimenti si raddoppiano i tempi
     public int bestResult() {
         return 0;
     }
     
     public List<SortedSet<T>> allGoodSolutions() {
-        return null;
-    }
-    
-    public SortedSet<T> bestSolution() {
         return null;
     }
 }
