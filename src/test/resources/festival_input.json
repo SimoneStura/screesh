@@ -15,21 +15,21 @@
           "hosted": true
         },
         {
-          "startTime": "02/10/2019 21:17",
+          "startTime": "03/10/2019 23:30",
           "cinema": "MAS",
           "theater": 2,
-          "hosted": true
+          "hosted": false
         }
       ]
     },
     {
       "title": "titolo2",
       "year": 1900,
-      "runtime": 456,
+      "runtime": 90,
       "priority": 1,
       "screenings": [
         {
-          "startTime": "02/10/2019 21:17",
+          "startTime": "02/10/2019 19:00",
           "cinema": "REP",
           "theater": 1,
           "hosted": false

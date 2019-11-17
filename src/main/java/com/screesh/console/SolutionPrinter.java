@@ -41,9 +41,8 @@ public class SolutionPrinter {
             if(from.isBefore(to)) {
                 Duration waitingTime = Duration.between(from, to);
                 
-                long seconds = waitingTime.getSeconds();
-                long minutes = (seconds / 60) % 60;
-                long hours = seconds / 3600;
+                long minutes = waitingTime.toMinutes() % 60;
+                long hours = waitingTime.toHours();
                 
                 if(hours > 0)
                     toPrint += hours + "h ";
@@ -58,12 +57,13 @@ public class SolutionPrinter {
     
     private static void printTitle(String solutionTitle) {
         if(solutionTitle != null)
-            System.out.println(solutionTitle + "\n");
+            System.out.println(solutionTitle);
     }
     
     private static void printDay(LocalDate currentDate) {
         Locale lang = Locale.ITALIAN;
-        String toPrint = currentDate.getDayOfWeek().getDisplayName(TextStyle.FULL, lang) +
+        String toPrint = "\n" +
+                currentDate.getDayOfWeek().getDisplayName(TextStyle.FULL, lang) +
                 " " +
                 currentDate.getDayOfMonth() +
                 " " +

@@ -2,8 +2,8 @@ package com.screesh.model;
 
 import com.screesh.solver.PlacedOverTime;
 
+import java.time.Duration;
 import java.time.LocalDateTime;
-import java.time.Period;
 import java.util.Objects;
 
 public class Screening implements PlacedOverTime<Screening> {
@@ -15,30 +15,17 @@ public class Screening implements PlacedOverTime<Screening> {
     private int priority;
     
     //TODO: spostare queste info dove compete, non bisogna sovraccaricare una classe del model di responsabilità
-    private int minutesToWait;
+    private int additionalMinutes;
+    private int regularPauseInMinutes;
     
     public Screening(Movie screened, LocalDateTime startTime, Cinema cinema, String theater) {
         this.screened = screened;
         this.startTime = startTime;
-        endTime = startTime.plusMinutes(screened.getRuntime());
+        endTime = calculateEndTime(screened, startTime);
         this.cinema = cinema;
         this.theater = theater;
-    }
-    
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Screening)) return false;
-        Screening screening = (Screening) o;
-        return screened.equals(screening.screened) &&
-                startTime.equals(screening.startTime) &&
-                Objects.equals(cinema, screening.cinema) &&
-                Objects.equals(theater, screening.theater);
-    }
-    
-    @Override
-    public int hashCode() {
-        return Objects.hash(screened, startTime, cinema, theater);
+        regularPauseInMinutes = 0;
+        additionalMinutes = 0;
     }
     
     public Movie getScreened() {
@@ -69,12 +56,36 @@ public class Screening implements PlacedOverTime<Screening> {
         this.priority = priority;
     }
     
-    public int getMinutesToWait() {
-        return minutesToWait;
+    public int getAdditionalMinutes() {
+        return additionalMinutes;
     }
     
-    public void setMinutesToWait(int minutesToWait) {
-        this.minutesToWait = minutesToWait;
+    public void setAdditionalMinutes(int additionalMinutes) {
+        this.additionalMinutes = additionalMinutes;
+    }
+    
+    public int getRegularPauseInMinutes() {
+        return regularPauseInMinutes;
+    }
+    
+    public void setRegularPauseInMinutes(int regularPauseInMinutes) {
+        this.regularPauseInMinutes = regularPauseInMinutes;
+    }
+    
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Screening)) return false;
+        Screening screening = (Screening) o;
+        return screened.equals(screening.screened) &&
+                startTime.equals(screening.startTime) &&
+                Objects.equals(cinema, screening.cinema) &&
+                Objects.equals(theater, screening.theater);
+    }
+    
+    @Override
+    public int hashCode() {
+        return Objects.hash(screened, startTime, cinema, theater);
     }
     
     @Override
@@ -93,25 +104,47 @@ public class Screening implements PlacedOverTime<Screening> {
         return cmp;
     }
     
+    //TODO: centralizzare dove compete
     @Override
-    public boolean isInConflictWith(Screening other) {
-        boolean ctrl = this.startTime.compareTo(other.endTime) <= 0;
-        if (ctrl) {
-            ctrl = this.endTime.compareTo(other.startTime) >= 0;
+    public boolean isInConflictWith(Screening that) {
+        Duration gapBetween = this.gap(that);
+        if(gapBetween == null)
+            return true;
+        if(gapBetween.isNegative()) {
+            gapBetween = gapBetween.negated()
+                    .minusMinutes(that.additionalMinutes);
         } else {
-        
+            gapBetween = gapBetween.minusMinutes(this.additionalMinutes);
         }
         
-        return ctrl;
+        int minutesForTripAndQueue = this.regularPauseInMinutes + this.cinema.getDistance(that.cinema);
+        gapBetween = gapBetween.minusMinutes(minutesForTripAndQueue);
+        
+        return gapBetween.isNegative();
     }
     
     @Override
-    public Period gap(Screening element) {
-        return null;
+    public Duration gap(Screening that) {
+        Duration result = null;
+        
+        if (startTime.isBefore(that.startTime)) {
+            if (endTime.isBefore(that.startTime) || endTime.isEqual(that.startTime))
+                result = Duration.between(endTime, that.startTime);
+        } else if (startTime.isAfter(that.startTime)) {
+            if (startTime.isAfter(that.endTime) || startTime.isEqual(that.endTime))
+                result = Duration.between(startTime, that.endTime);
+        }
+        // if startTime of the 2 objects are equals, return null
+        
+        return result;
     }
     
     @Override
-    public boolean sameDayAs(Screening element) {
-        return false;
+    public boolean sameDayAs(Screening that) {
+        return this.startTime.toLocalDate().isEqual(that.startTime.toLocalDate());
+    }
+    
+    private LocalDateTime calculateEndTime(Movie screened, LocalDateTime startTime) {
+        return startTime.plusMinutes(screened.getRuntime());
     }
 }
