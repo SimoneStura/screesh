@@ -36,7 +36,10 @@ class BnBSolution<T extends PlacedOverTime<T>> extends Observable {
         solution.remove(last);
 
         setChanged();
-        last = solution.last();
+        if(solution.isEmpty())
+            last = null;
+        else
+            last = solution.last();
         notifyObservers(last);
     }
     

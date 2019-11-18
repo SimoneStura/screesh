@@ -6,8 +6,9 @@ public class FilmFestival {
     private String name;
     private int minimumToWaitInMinutes;
     private Map<String, Cinema> cinemas;
-    private Set<Movie> movies;
+    private HashSet<Movie> movies;
     private SortedSet<Screening> shows;
+    private SortedSet<Integer> priorities;
     private Map<Movie, ArrayList<Screening>> screens;
     
     public FilmFestival(String name, int minimumToWaitInMinutes) {
@@ -16,6 +17,7 @@ public class FilmFestival {
         cinemas = new HashMap<>();
         movies = new HashSet<>();
         shows = new TreeSet<>();
+        priorities = new TreeSet<>();
         screens = new HashMap<>();
     }
     
@@ -31,7 +33,11 @@ public class FilmFestival {
         return cinemas.values();
     }
     
-    public Set<Movie> getMovies() {
+    public SortedSet<Integer> getPriorities() {
+        return priorities;
+    }
+    
+    public HashSet<Movie> getMovies() {
         return movies;
     }
     
@@ -84,6 +90,7 @@ public class FilmFestival {
             for(Screening singleScreening : toAdd) {
                 ArrayList<Screening> screeningsOfMovie = screens.get(singleScreening.getScreened());
                 screeningsOfMovie.add(singleScreening);
+                priorities.add(singleScreening.getPriority());
             }
         }
         return ctrl;

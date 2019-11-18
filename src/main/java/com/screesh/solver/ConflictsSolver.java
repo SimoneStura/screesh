@@ -58,6 +58,30 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
         if(itemsToAdd.size() > 0) numGroups++;
     }
     
+    public void remove(T itemToRemove) {
+        ConflictualItem<T> toRemove = solutionItems.getOrDefault(itemToRemove, null);
+        if(toRemove == null)
+            return;
+        solutionItems.remove(itemToRemove);
+        sortedSolutionItems.remove(toRemove);
+        conflicts.removeVertex(toRemove);
+        numItems--;
+    
+        HashSet<ConflictualItem<T>> group = groupMembership.getOrDefault(itemToRemove, null);
+        if(group == null)
+            return;
+        group.remove(toRemove);
+        if(group.size() == 0)
+            numGroups--;
+        groupMembership.remove(itemToRemove);
+    }
+    
+    public void remove(Collection<T> itemsToRemove) {
+        for(T itemToRemove : itemsToRemove) {
+            remove(itemToRemove);
+        }
+    }
+    
     private ConflictualItem<T> addIfAbsent(T itemToAdd) {
         ConflictualItem<T> itemWithConflicts = new ConflictualItem<>(itemToAdd);
         ConflictualItem<T> alreadyAdded = solutionItems.putIfAbsent(itemToAdd, itemWithConflicts);
@@ -82,7 +106,7 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
         conflicts.addEdge(vertex1, vertex2);
     }
     
-    public boolean mustIncludeOne(SortedSet<T> items) {
+    public boolean mustIncludeOne(Collection<T> items) {
         SortedSet<ConflictualItem<T>> conflictualItems = new TreeSet<>();
         for(T item : items)
             conflictualItems.add(addIfAbsent(item));
@@ -115,7 +139,7 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
             return bin;
         }
         ConflictualItem<T> firstToChoose = bin.stillToChoose.first();
-        bin.stillToChoose = bin.stillToChoose.tailSet(firstToChoose);
+        bin.stillToChoose.remove(firstToChoose);
         
         branchAndBound.add(firstToChoose);
         
@@ -128,14 +152,8 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
     }
     
     private SortedSet<ConflictualItem<T>> findAddables(SortedSet<ConflictualItem<T>> stillToChoose) {
-        ConflictualItem<T> firstAddable = null;
-        for(ConflictualItem<T> toChoose : stillToChoose) {
-            if(!toChoose.isObscured()) {
-                firstAddable = toChoose;
-                break;
-            }
-        }
-        return firstAddable == null ? null : stillToChoose.tailSet(firstAddable);
+        stillToChoose.removeIf(ConflictualItem::isObscured);
+        return stillToChoose;
     }
     
     private class SolutionBin {
