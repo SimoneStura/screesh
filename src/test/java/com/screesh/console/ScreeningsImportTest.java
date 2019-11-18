@@ -13,7 +13,7 @@ class ScreeningsImportTest {
     @Test
     void buildFromJson() throws IOException {
         //given
-        String filepath = "src/test/resources/festival_input.json";
+        String filepath = "src/test/resources/tff_37.json";
         
         //when
         FilmFestival ff = ScreeningsImport.buildFromJson(filepath);
