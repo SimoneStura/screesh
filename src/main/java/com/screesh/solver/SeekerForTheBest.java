@@ -7,8 +7,8 @@ import java.util.TreeSet;
 
 class SeekerForTheBest<T extends PlacedOverTime<T>> {
     private SolutionAnalyzer<T> analyzer;
-    private SortedSet<T> requiredItems;
-    private ArrayList<SortedSet<T>> groupsToInclude;
+    private SortedSet<ConflictualItem<T>> requiredItems;
+    private ArrayList<SortedSet<ConflictualItem<T>>> groupsToInclude;
     
     SeekerForTheBest(SolutionAnalyzer<T> analyzer) {
         this.analyzer = analyzer;
@@ -17,45 +17,66 @@ class SeekerForTheBest<T extends PlacedOverTime<T>> {
     }
     
     boolean isWorthToContinue(SortedSet<ConflictualItem<T>> remainingItems) {
-        return isWorthToContinue(remainingItems, 0);
-    }
-    
-    boolean isWorthToContinue(SortedSet<ConflictualItem<T>> remainingItems, int recordTotMovies) {
-        long maximumAddable = remainingItems.stream()
-                .filter(x -> !x.isObscured())
-                .count();
-        return analyzer.getTotalItemsInSolution() + maximumAddable >= recordTotMovies;
-    }
-    
-    boolean isBestSolution() {
-        return false;
-    }
-    
-    boolean mustInclude(T item) {
-        for (T req : requiredItems) {
-            if (item.isInConflictWith(req))
+        for (ConflictualItem<T> req : requiredItems) {
+            if (req.isObscured())
                 return false;
         }
         
-        for(SortedSet<T> group : groupsToInclude) {
-            if(!canFitGroup(item, group))
+        for (SortedSet<ConflictualItem<T>> group : groupsToInclude) {
+            boolean allExcluded = true;
+            for (ConflictualItem<T> groupItem : group) {
+                allExcluded = groupItem.isObscured();
+                if (!allExcluded)
+                    break;
+            }
+            if (allExcluded)
                 return false;
         }
         
-        requiredItems.add(item);
+        long maximumAddable = 0;
+        if (remainingItems != null) {
+            maximumAddable = remainingItems.stream()
+                    .filter(x -> !x.isObscured())
+                    .count();
+        }
+        
+        return analyzer.getTotalItemsInSolution() + maximumAddable >= analyzer.getBestSolution();
+    }
+    
+    boolean isBestSolution(SortedSet<T> currentSolution) {
+        if(!isWorthToContinue(null))
+            return false;
+        int currentLength = currentSolution.size();
+        if (currentLength > analyzer.getBestSolution())
+            analyzer.setBestSolution(currentLength);
+        return currentLength == analyzer.getBestSolution();
+    }
+    
+    boolean mustInclude(ConflictualItem<T> conflictual) {
+        for (ConflictualItem<T> req : requiredItems) {
+            if (conflictual.getItem().isInConflictWith(req.getItem()))
+                return false;
+        }
+        
+        for (SortedSet<ConflictualItem<T>> group : groupsToInclude) {
+            if (!canFitGroup(conflictual, group))
+                return false;
+        }
+        
+        requiredItems.add(conflictual);
         return true;
     }
     
-    boolean mustIncludeOne(SortedSet<T> items) {
-        for (T req : requiredItems) {
+    boolean mustIncludeOne(SortedSet<ConflictualItem<T>> items) {
+        for (ConflictualItem<T> req : requiredItems) {
             if (!canFitGroup(req, items)) {
                 return false;
             }
         }
         
-        for (T current : items) {
+        for (ConflictualItem<T> current : items) {
             boolean canFitAllGroups = true;
-            for (SortedSet<T> group : groupsToInclude) {
+            for (SortedSet<ConflictualItem<T>> group : groupsToInclude) {
                 canFitAllGroups = canFitAllGroups && canFitGroup(current, group);
             }
             
@@ -68,12 +89,12 @@ class SeekerForTheBest<T extends PlacedOverTime<T>> {
     }
     
     //TODO: trasformare in un metodo di istanza
-    private boolean canFitGroup(T item, Collection<T> group) {
-        if (group.contains(item))
+    private boolean canFitGroup(ConflictualItem<T> conflictual, Collection<ConflictualItem<T>> group) {
+        if (group.contains(conflictual))
             return true;
         
-        for (T groupItem : group) {
-            if (!item.isInConflictWith(groupItem)) {
+        for (ConflictualItem<T> groupItem : group) {
+            if (!conflictual.getItem().isInConflictWith(groupItem.getItem())) {
                 return true;
             }
         }

@@ -9,14 +9,12 @@ class SolutionAnalyzer<T extends PlacedOverTime<T>> implements Observer {
     private int maximumGap;
     private int currentDayCount;
     private int totalItemsInSolution;
+    private int bestSolution;
     private ConflictsGraph<T> conflicts;
     
-    public SolutionAnalyzer(ConflictsGraph<T> conflicts) {
+    SolutionAnalyzer(ConflictsGraph<T> conflicts) {
         this.conflicts = conflicts;
-        minimumGap = 0;
-        maximumGap = 0;
-        currentDayCount = 0;
-        totalItemsInSolution = 0;
+        reset();
     }
 
     @Override
@@ -34,23 +32,39 @@ class SolutionAnalyzer<T extends PlacedOverTime<T>> implements Observer {
     }
     
     //TODO: cambiare la gestione in modo da non interpellare il ConflictsGraph
-    public Set<T> getObscuredItems() {
+    Set<T> getObscuredItems() {
         return conflicts.getObscuredItems();
     }
     
-    public int getMinimumGap() {
+    int getMinimumGap() {
         return minimumGap;
     }
     
-    public int getMaximumGap() {
+    int getMaximumGap() {
         return maximumGap;
     }
     
-    public int getCurrentDayCount() {
+    int getCurrentDayCount() {
         return currentDayCount;
     }
     
-    public int getTotalItemsInSolution() {
+    int getTotalItemsInSolution() {
         return totalItemsInSolution;
+    }
+    
+    int getBestSolution() {
+        return bestSolution;
+    }
+    
+    void setBestSolution(int bestSolution) {
+        this.bestSolution = bestSolution;
+    }
+    
+    void reset() {
+        minimumGap = 0;
+        maximumGap = 0;
+        currentDayCount = 0;
+        totalItemsInSolution = 0;
+        bestSolution = 0;
     }
 }

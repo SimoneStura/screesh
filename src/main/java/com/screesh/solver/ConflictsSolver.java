@@ -83,20 +83,76 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
     }
     
     public boolean mustIncludeOne(SortedSet<T> items) {
-        items.forEach(this::addIfAbsent);
-        return seeker.mustIncludeOne(items);
+        SortedSet<ConflictualItem<T>> conflictualItems = new TreeSet<>();
+        for(T item : items)
+            conflictualItems.add(addIfAbsent(item));
+            
+        return seeker.mustIncludeOne(conflictualItems);
     }
     
     public boolean mustInclude(T toBeIncluded) {
-        return seeker.mustInclude(toBeIncluded);
+        ConflictualItem<T> conflictual = addIfAbsent(toBeIncluded);
+        return seeker.mustInclude(conflictual);
     }
     
-    // facciamo che non serve, altrimenti si raddoppiano i tempi
+    //TODO: scegliere se è meglio avere tempi doppi oppure risparmiare sulla memoria
     public int bestResult() {
         return 0;
     }
     
     public List<SortedSet<T>> allGoodSolutions() {
-        return null;
+        analyzer.reset();
+        SolutionBin bin = new SolutionBin(sortedSolutionItems);
+        bin = goodSolutionsFinder(bin);
+        return bin.allGoodSolutions;
+    }
+    
+    private SolutionBin goodSolutionsFinder(SolutionBin bin) {
+        bin.stillToChoose = findAddables(bin.stillToChoose);
+        if(bin.stillToChoose == null || bin.stillToChoose.size() == 0) {
+            if(seeker.isBestSolution(branchAndBound.getSolution()))
+                bin.addGoodSolution(branchAndBound.getSolution());
+            return bin;
+        }
+        ConflictualItem<T> firstToChoose = bin.stillToChoose.first();
+        bin.stillToChoose = bin.stillToChoose.tailSet(firstToChoose);
+        
+        branchAndBound.add(firstToChoose);
+        
+        if(seeker.isWorthToContinue(bin.stillToChoose))
+            bin = goodSolutionsFinder(bin);
+        
+        branchAndBound.removeLast();
+        
+        return bin;
+    }
+    
+    private SortedSet<ConflictualItem<T>> findAddables(SortedSet<ConflictualItem<T>> stillToChoose) {
+        ConflictualItem<T> firstAddable = null;
+        for(ConflictualItem<T> toChoose : stillToChoose) {
+            if(!toChoose.isObscured()) {
+                firstAddable = toChoose;
+                break;
+            }
+        }
+        return firstAddable == null ? null : stillToChoose.tailSet(firstAddable);
+    }
+    
+    private class SolutionBin {
+        SortedSet<ConflictualItem<T>> stillToChoose;
+        List<SortedSet<T>> allGoodSolutions;
+    
+        SolutionBin(SortedSet<ConflictualItem<T>> stillToChoose) {
+            this.stillToChoose = stillToChoose;
+            allGoodSolutions = new ArrayList<>();
+        }
+        
+        void addGoodSolution(SortedSet<T> goodSolution) {
+            if(!allGoodSolutions.isEmpty() && allGoodSolutions.get(0).size() < goodSolution.size())
+                allGoodSolutions.clear();
+    
+            if(allGoodSolutions.isEmpty() || allGoodSolutions.get(0).size() == goodSolution.size())
+                allGoodSolutions.add(goodSolution);
+        }
     }
 }
