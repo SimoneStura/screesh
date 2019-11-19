@@ -1,6 +1,7 @@
 package com.screesh.console;
 
 import com.screesh.model.Screening;
+import org.apache.commons.lang3.StringUtils;
 import org.junit.Assert;
 
 import java.time.Duration;
@@ -33,6 +34,11 @@ public class SolutionPrinter {
             lastEnding = s.getEndTime();
             lastDate = currentDate;
         }
+        printEnding();
+    }
+    
+    private static void printEnding() {
+        System.out.println(StringUtils.repeat("-", 40) + "\n");
     }
     
     private static void printWaiting(LocalDateTime from, LocalDateTime to) {
@@ -56,6 +62,7 @@ public class SolutionPrinter {
     }
     
     private static void printTitle(String solutionTitle) {
+        System.out.println(StringUtils.repeat("-", 40));
         if(solutionTitle != null)
             System.out.println(solutionTitle);
     }

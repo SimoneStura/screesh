@@ -19,38 +19,47 @@ public class Application {
         String filepath = "src/main/resources/tff_37.json";
         FilmFestival ff = ScreeningsImport.buildFromJson(filepath);
         
-        HashSet<Movie> conflictualMovies = ff.getMovies();
+        HashSet<Movie> currentSolutionMovies = new HashSet<>();
         ConflictsSolver<Screening> solver = new ConflictsSolver<>();
-        for (Movie conflMovie : conflictualMovies) {
-            List<Screening> showsForMovie = ff.getScreens(conflMovie);
-            solver.addGroup(showsForMovie);
-        }
+        List<SortedSet<Screening>> goodSolutions = new ArrayList<>();
         
-        List<SortedSet<Screening>> goodSolutions = null;
-        while (goodSolutions == null) {
-            goodSolutions = solver.allGoodSolutions();
-            ScheduleChooser chooser = new ScheduleChooser(conflictualMovies, new ChooseWithTerminal());
-            List<ChoiceMade> newchoices = chooser.chooseSolution(goodSolutions);
-            if(newchoices.isEmpty())
-                break;
-            for(ChoiceMade choice : newchoices) {
-                if(choice.isExcluded()) {
-                    List<Screening> showsToExclude = ff.getScreens(choice.getMovie());
-                    solver.remove(showsToExclude);
-                } else {
-                    List<Screening> shows = ff.getScreens(choice.getMovie());
-                    if(shows.size() == 1)
-                        solver.mustInclude(shows.get(0));
-                    else
-                        solver.mustIncludeOne(shows);
+        for (Integer currentPriority : ff.getPriorities()) {
+            HashSet<Movie> currentPriorityMovies = ff.getMoviesWithPriority(currentPriority);
+            for (Movie conflMovie : currentPriorityMovies) {
+                List<Screening> showsForMovie = ff.getScreens(conflMovie);
+                solver.addGroup(showsForMovie);
+            }
+            
+            currentSolutionMovies.addAll(currentPriorityMovies);
+            
+            while (goodSolutions.size() == 0 || goodSolutions.get(0).size() < currentSolutionMovies.size()) {
+                goodSolutions = solver.allGoodSolutions();
+                
+                ScheduleChooser chooser = new ScheduleChooser(currentSolutionMovies, new ChooseWithTerminal());
+                List<ChoiceMade> newChoices = chooser.chooseSolution(goodSolutions);
+                if (newChoices.isEmpty())
+                    continue;
+                for (ChoiceMade choice : newChoices) {
+                    if (choice.isExcluded()) {
+                        currentSolutionMovies.remove(choice.getMovie());
+                        List<Screening> showsToExclude = ff.getScreens(choice.getMovie());
+                        solver.remove(showsToExclude);
+                    } else {
+                        List<Screening> shows = ff.getScreens(choice.getMovie());
+                        if (shows.size() == 1)
+                            solver.mustInclude(shows.get(0));
+                        else
+                            solver.mustIncludeOne(shows);
+                    }
+                    goodSolutions.clear();
                 }
-                goodSolutions = null;
             }
         }
-        
+    
+    
         for (int i = 0; i < goodSolutions.size(); i++) {
             SortedSet<Screening> finalSolution = goodSolutions.get(i);
-            SolutionPrinter.printSolution(finalSolution, ff.getName() + " - SOLUZIONE " + (i+1));
+            SolutionPrinter.printSolution(finalSolution, ff.getName() + " - SOLUZIONE " + (i + 1));
         }
     }
 }

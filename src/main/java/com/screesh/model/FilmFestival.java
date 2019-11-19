@@ -8,7 +8,7 @@ public class FilmFestival {
     private Map<String, Cinema> cinemas;
     private HashSet<Movie> movies;
     private SortedSet<Screening> shows;
-    private SortedSet<Integer> priorities;
+    private Map<Integer, HashSet<Movie>> priorityGroups;
     private Map<Movie, ArrayList<Screening>> screens;
     
     public FilmFestival(String name, int minimumToWaitInMinutes) {
@@ -17,7 +17,7 @@ public class FilmFestival {
         cinemas = new HashMap<>();
         movies = new HashSet<>();
         shows = new TreeSet<>();
-        priorities = new TreeSet<>();
+        priorityGroups = new HashMap<>();
         screens = new HashMap<>();
     }
     
@@ -33,8 +33,8 @@ public class FilmFestival {
         return cinemas.values();
     }
     
-    public SortedSet<Integer> getPriorities() {
-        return priorities;
+    public Set<Integer> getPriorities() {
+        return priorityGroups.keySet();
     }
     
     public HashSet<Movie> getMovies() {
@@ -60,15 +60,25 @@ public class FilmFestival {
         c2.setDistance(c1, distanceInMinutes);
     }
     
-    public boolean addMovie(Movie toAdd) {
+    public boolean addMovie(Movie toAdd, int priority) {
         if(toAdd == null)
             throw new IllegalArgumentException();
         
         boolean ctrl = movies.add(toAdd);
-        if(ctrl)
+        if(ctrl) {
             screens.put(toAdd, new ArrayList<>());
+            HashSet<Movie> prioritySet = new HashSet<>();
+            HashSet<Movie> existingSet = priorityGroups.putIfAbsent(priority, prioritySet);
+            if(existingSet == null)
+                existingSet = prioritySet;
+            existingSet.add(toAdd);
+        }
         
         return ctrl;
+    }
+    
+    public HashSet<Movie> getMoviesWithPriority(int priority) {
+        return priorityGroups.getOrDefault(priority, null);
     }
     
     public boolean addScreening(Screening toAdd) {
@@ -90,7 +100,6 @@ public class FilmFestival {
             for(Screening singleScreening : toAdd) {
                 ArrayList<Screening> screeningsOfMovie = screens.get(singleScreening.getScreened());
                 screeningsOfMovie.add(singleScreening);
-                priorities.add(singleScreening.getPriority());
             }
         }
         return ctrl;

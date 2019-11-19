@@ -38,7 +38,7 @@ public class ScreeningsImport {
                 Screening s = buildScreening(m, screeningDto, movieDto.getPriority(), ff.getMinimumToWaitInMinutes());
                 screenings.add(s);
             }
-            ff.addMovie(m);
+            ff.addMovie(m, screenings.get(0).getPriority());
             ff.addScreenings(screenings);
         }
         return ff;

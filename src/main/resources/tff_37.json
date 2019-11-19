@@ -6,7 +6,7 @@
       "title": "titolo1",
       "year": 1900,
       "runtime": 123,
-      "priority": 1,
+      "priority": 3,
       "screenings": [
         {
           "startTime": "02/10/2019 21:17",

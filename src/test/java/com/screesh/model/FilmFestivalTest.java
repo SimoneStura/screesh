@@ -49,7 +49,7 @@ class FilmFestivalTest {
         Movie m = TestCommonData.createMovie("Movie");
         
         //when
-        ff.addMovie(m);
+        ff.addMovie(m, 1);
         movies = ff.getMovies();
         
         //then
@@ -62,7 +62,7 @@ class FilmFestivalTest {
     void addScreening_singleScreening() {
         //given
         Movie m = TestCommonData.createMovie("Movie");
-        ff.addMovie(m);
+        ff.addMovie(m, 1);
         SortedSet<Screening> shows = ff.getShows();
         List<Screening> screens = ff.getScreens(m);
         Assert.assertNotNull(shows);
@@ -89,7 +89,7 @@ class FilmFestivalTest {
     void addScreening_screeningList() {
         //given
         Movie m = TestCommonData.createMovie("Movie");
-        ff.addMovie(m);
+        ff.addMovie(m, 1);
         SortedSet<Screening> shows = ff.getShows();
         List<Screening> screens = ff.getScreens(m);
         Assert.assertNotNull(shows);

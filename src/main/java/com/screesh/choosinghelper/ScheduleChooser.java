@@ -60,7 +60,7 @@ public class ScheduleChooser {
             }
         }
         
-        if(notAlwaysExcluded.size() > 0) {
+        if(notAlwaysExcluded.size() > 0 && notAlwaysExcluded.get(0).getCounting() > 0) {
             int indexToExclude = userAsker.chooseOneToExclude(notAlwaysExcluded);
             if(indexToExclude >= 0 && indexToExclude < notAlwaysExcluded.size()) {
                 ChoiceMade choice = new ChoiceMade(notAlwaysExcluded.get(indexToExclude).getValue(), true);
