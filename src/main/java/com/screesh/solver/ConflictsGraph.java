@@ -29,7 +29,7 @@ class ConflictsGraph<T extends PlacedOverTime<T>> extends Graph<ConflictualItem<
         if(choosingActions.isEmpty())
             return;
         ConflictGraphAction<T> lastAction = choosingActions.pop();
-        lastAction.getMainItem().setObscured(true);
+        lastAction.getMainItem().setChosen(true);
         for(ConflictualItem<T> previouslyObscured : lastAction.getInvolvedItems()) {
             previouslyObscured.setObscured(false);
         }

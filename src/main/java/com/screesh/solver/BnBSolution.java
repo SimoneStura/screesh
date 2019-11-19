@@ -31,8 +31,6 @@ class BnBSolution<T extends PlacedOverTime<T>> extends Observable {
         conflictsGraph.rollbackOfChoosing();
         
         ConflictualItem<T> last = solution.last();
-        Assert.assertTrue(last.isObscured());
-        Assert.assertFalse(last.isChosen());
         solution.remove(last);
 
         setChanged();

@@ -44,6 +44,7 @@ public class Application {
                     else
                         solver.mustIncludeOne(shows);
                 }
+                goodSolutions = null;
             }
         }
         

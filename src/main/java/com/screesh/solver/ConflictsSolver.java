@@ -1,5 +1,6 @@
 package com.screesh.solver;
 
+import java.util.stream.Collectors;
 import org.junit.Assert;
 
 import java.util.*;
@@ -91,15 +92,19 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
             conflicts.addVertex(itemWithConflicts);
             alreadyAdded = itemWithConflicts;
             numItems++;
+            searchForConflicts(alreadyAdded);
         }
         
         return alreadyAdded;
     }
-    
-    public void setConflict(T item1, T item2) {
-        ConflictualItem<T> vertex1 = addIfAbsent(item1);
-        ConflictualItem<T> vertex2 = addIfAbsent(item2);
-        setConflict(vertex1, vertex2);
+
+    private void searchForConflicts(ConflictualItem<T> item) {
+        for(ConflictualItem<T> conflictual : sortedSolutionItems) {
+            if(conflictual.equals(item))
+                continue;
+            if(conflictual.getItem().isInConflictWith(item.getItem()))
+                setConflict(conflictual, item);
+        }
     }
     
     private void setConflict(ConflictualItem<T> vertex1, ConflictualItem<T> vertex2) {
@@ -131,29 +136,32 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
         return bin.allGoodSolutions;
     }
     
-    private SolutionBin goodSolutionsFinder(SolutionBin bin) {
-        bin.stillToChoose = findAddables(bin.stillToChoose);
-        if(bin.stillToChoose == null || bin.stillToChoose.size() == 0) {
+    private SolutionBin goodSolutionsFinder(SolutionBin inputBin) {
+        SortedSet<ConflictualItem<T>> addables = findAddables(inputBin.stillToChoose);
+        SolutionBin outputBin = new SolutionBin(addables);
+        if(addables == null || addables.size() == 0) {
             if(seeker.isBestSolution(branchAndBound.getSolution()))
-                bin.addGoodSolution(branchAndBound.getSolution());
-            return bin;
+                inputBin.addGoodSolution(branchAndBound.getSolution());
+            return inputBin;
         }
-        ConflictualItem<T> firstToChoose = bin.stillToChoose.first();
-        bin.stillToChoose.remove(firstToChoose);
+        ConflictualItem<T> firstToChoose = outputBin.stillToChoose.first();
+        outputBin.stillToChoose.remove(firstToChoose);
         
         branchAndBound.add(firstToChoose);
-        
-        if(seeker.isWorthToContinue(bin.stillToChoose))
-            bin = goodSolutionsFinder(bin);
+        if(seeker.isWorthToContinue(outputBin.stillToChoose))
+            goodSolutionsFinder(outputBin);
         
         branchAndBound.removeLast();
-        
-        return bin;
+        if(seeker.isWorthToContinue(outputBin.stillToChoose))
+            goodSolutionsFinder(outputBin);
+
+        for(SortedSet<T> newSolution : outputBin.allGoodSolutions)
+            inputBin.addGoodSolution(newSolution);
+        return inputBin;
     }
     
     private SortedSet<ConflictualItem<T>> findAddables(SortedSet<ConflictualItem<T>> stillToChoose) {
-        stillToChoose.removeIf(ConflictualItem::isObscured);
-        return stillToChoose;
+        return stillToChoose.stream().filter(x -> !x.isObscured()).collect(Collectors.toCollection(TreeSet::new));
     }
     
     private class SolutionBin {
