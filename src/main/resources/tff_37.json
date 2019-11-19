@@ -3,13 +3,13 @@
   "minimumToWaitInMinutes": 10,
   "movies": [
     {
-      "title": "titolo1",
-      "year": 1900,
-      "runtime": 123,
-      "priority": 3,
+      "title": "Jojo Rabbit",
+      "year": 2019,
+      "runtime": 108,
+      "priority": 1,
       "screenings": [
         {
-          "startTime": "02/10/2019 21:17",
+          "startTime": "22/11/2019 19:30",
           "cinema": "MAS",
           "theater": 1,
           "hosted": true
@@ -17,29 +17,294 @@
       ]
     },
     {
-      "title": "titolo2",
-      "year": 1900,
-      "runtime": 90,
+      "title": "Dreamland",
+      "year": 2019,
+      "runtime": 98,
       "priority": 1,
       "screenings": [
         {
-          "startTime": "02/10/2019 19:00",
+          "startTime": "28/11/2019 22:00",
           "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 14:30",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 20:00",
+          "cinema": "MAS",
           "theater": 1,
-          "hosted": true
+          "hosted": false
         }
       ]
     },
     {
-      "title": "titolo3",
-      "year": 1900,
-      "runtime": 90,
+      "title": "The Good Liar",
+      "year": 2019,
+      "runtime": 109,
       "priority": 1,
       "screenings": [
         {
-          "startTime": "02/10/2019 19:00",
+          "startTime": "24/11/2019 19:30",
           "cinema": "REP",
           "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "25/11/2019 15:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "26/11/2019 17:45",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Knives Out",
+      "year": 2019,
+      "runtime": 130,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "30/11/2019 22:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Il Ladro di Bambini",
+      "year": 1992,
+      "runtime": 114,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "27/11/2019 17:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "L'Ultimo Piano",
+      "year": 2019,
+      "runtime": 87,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "29/11/2019 15:00",
+          "cinema": "REP",
+          "theater": 2,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Sunset Boulevard",
+      "year": 1950,
+      "runtime": 110,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 20:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "26/11/2019 09:15",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Ordet",
+      "year": 1955,
+      "runtime": 126,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "24/11/2019 18:00",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "25/11/2019 11:45",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Divorzio all'Italiana",
+      "year": 1979,
+      "runtime": 130,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "25/11/2019 15:00",
+          "cinema": "REP",
+          "theater": 2,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 20:00",
+          "cinema": "REP",
+          "theater": 2,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Being There",
+      "year": 1979,
+      "runtime": 130,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "24/11/2019 15:00",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "27/11/2019 09:00",
+          "cinema": "MAS",
+          "theater": 2,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "What's Eating Mr. Grape",
+      "year": 1993,
+      "runtime": 118,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 17:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "25/11/2019 09:15",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Das Cabinet des Dr. Caligari",
+      "year": 1920,
+      "runtime": 76,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 14:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "24/11/2019 10:00",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Nosferatu",
+      "year": 1922,
+      "runtime": 94,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "24/11/2019 15:30",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "25/11/2019 09:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Phantom of the Opera",
+      "year": 1925,
+      "runtime": 101,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "25/11/2019 14:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "26/11/2019 22:00",
+          "cinema": "MAS",
+          "theater": 2,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Frankenstein",
+      "year": 1931,
+      "runtime": 70,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 17:48",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 20:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    }
+  
+  
+  
+
+  ,
+    {
+      "title": "titolo1",
+      "year": 1966,
+      "runtime": 999,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 00:00",
+          "cinema": "MAS",
+          "theater": 1,
           "hosted": false
         }
       ]

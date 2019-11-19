@@ -18,8 +18,7 @@ public class Movie implements Comparable<Movie>, Serializable {
     @Override
     public String toString() {
         return title +
-                " (" + year + ")" +
-                " " + runtime + "'";
+                " (" + year + ")";
     }
     
     @Override
