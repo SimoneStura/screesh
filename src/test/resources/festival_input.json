@@ -4,20 +4,14 @@
   "movies": [
     {
       "title": "titolo1",
-      "year": 1900,
-      "runtime": 123,
+      "year": 1966,
+      "runtime": 999,
       "priority": 1,
       "screenings": [
         {
-          "startTime": "02/10/2019 21:17",
+          "startTime": "23/11/2019 00:00",
           "cinema": "MAS",
           "theater": 1,
-          "hosted": true
-        },
-        {
-          "startTime": "03/10/2019 23:30",
-          "cinema": "MAS",
-          "theater": 2,
           "hosted": false
         }
       ]

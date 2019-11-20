@@ -481,10 +481,464 @@
           "hosted": false
         }
       ]
+    },
+    {
+      "title": "The Body Snatcher",
+      "year": 1945,
+      "runtime": 78,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "25/11/2019 19:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 14:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 14:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Creature from the Black Lagoon",
+      "year": 1954,
+      "runtime": 79,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "25/11/2019 17:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Curse of Frankenstein/The Revenge of Frankenstein",
+      "year": 1957,
+      "runtime": 195,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "24/11/2019 20:45",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 09:45",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Dracula",
+      "year": 1958,
+      "runtime": 82,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 11:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "26/11/2019 21:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Tingler",
+      "year": 1959,
+      "runtime": 82,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "26/11/2019 17:30",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 15:00",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "La Maschera del Demonio",
+      "year": 1960,
+      "runtime": 87,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "27/11/2019 20:15",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 09:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Les Yeux Sans Visage",
+      "year": 1960,
+      "runtime": 90,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "24/11/2019 12:30",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "26/11/2019 19:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Pit and the Pendulum",
+      "year": 1961,
+      "runtime": 80,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "26/11/2019 17:45",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 22:00",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Curse of the Werefolf",
+      "year": 1961,
+      "runtime": 93,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "27/11/2019 22:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 09:15",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Innocents",
+      "year": 1961,
+      "runtime": 100,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "27/11/2019 19:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 17:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "L'Orribile Segreto del Dr. Hichcock",
+      "year": 1962,
+      "runtime": 88,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "29/11/2019 17:45",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 17:30",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Birds",
+      "year": 1963,
+      "runtime": 119,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "27/11/2019 22:00",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 12:00",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Haunting",
+      "year": 1963,
+      "runtime": 112,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "24/11/2019 11:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 20:15",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 11:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Masque of the Red Death",
+      "year": 1964,
+      "runtime": 89,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "29/11/2019 22:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 17:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Onibaba",
+      "year": 1964,
+      "runtime": 103,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "27/11/2019 17:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 11:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Dr. Terror's House of Horrors",
+      "year": 1965,
+      "runtime": 98,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "28/11/2019 17:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 09:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Operazione Paura",
+      "year": 1966,
+      "runtime": 85,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "28/11/2019 22:45",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 19:30",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Plague of the Zombies",
+      "year": 1966,
+      "runtime": 90,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "25/11/2019 11:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 19:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 09:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Sorcerers",
+      "year": 1967,
+      "runtime": 86,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "26/11/2019 09:30",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 21:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Rosemary's Baby",
+      "year": 1968,
+      "runtime": 137,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 11:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 22:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Toby Dammit",
+      "year": 1968,
+      "runtime": 43,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "28/11/2019 22:45",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 19:30",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Dr. Jekyll & Sister Hyde",
+      "year": 1971,
+      "runtime": 97,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "27/11/2019 14:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 09:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 19:30",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
     }
-  
-  
-  
-
   ]
 }
