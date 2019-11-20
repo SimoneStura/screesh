@@ -46,4 +46,8 @@ class BnBSolution<T extends PlacedOverTime<T>> extends Observable {
         solution.forEach(v -> solutionItems.add(v.getItem()));
         return solutionItems;
     }
+
+    public void reset() {
+        solution = new TreeSet<>();
+    }
 }

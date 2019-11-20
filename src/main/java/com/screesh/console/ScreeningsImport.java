@@ -67,7 +67,10 @@ public class ScreeningsImport {
         }
         Screening s = new Screening(movie, screeningDto.getStartTime(), cinema, String.valueOf(screeningDto.getTheater()));
         s.setPriority(priority);
-        s.setRegularPauseInMinutes(minutesToWait);
+        if(s.getStartTime().getHour() < 17)
+            s.setRegularPauseInMinutes(minutesToWait);
+        else
+            s.setRegularPauseInMinutes(0);
         if(screeningDto.isHosted())
             s.setAdditionalMinutes(defualtMinutesForHosted);
         

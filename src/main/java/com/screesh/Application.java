@@ -34,7 +34,12 @@ public class Application {
             
             while (goodSolutions.size() == 0 || goodSolutions.get(0).size() < currentSolutionMovies.size()) {
                 goodSolutions = solver.allGoodSolutions();
-                
+
+                for (int i = 0; i < goodSolutions.size(); i++) {
+                    SortedSet<Screening> finalSolution = goodSolutions.get(i);
+                    SolutionPrinter.printSolution(finalSolution, ff.getName() + " - SOLUZIONE " + (i + 1));
+                }
+
                 ScheduleChooser chooser = new ScheduleChooser(currentSolutionMovies, new ChooseWithTerminal());
                 List<ChoiceMade> newChoices = chooser.chooseSolution(goodSolutions);
                 if (newChoices.isEmpty())

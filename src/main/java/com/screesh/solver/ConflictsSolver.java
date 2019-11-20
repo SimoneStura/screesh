@@ -123,6 +123,15 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
         ConflictualItem<T> conflictual = addIfAbsent(toBeIncluded);
         return seeker.mustInclude(conflictual);
     }
+
+    private void reset() {
+        for(ConflictualItem<T> item : sortedSolutionItems) {
+            item.setObscured(false);
+            item.setChosen(false);
+        }
+        analyzer.reset();
+        branchAndBound.reset();
+    }
     
     //TODO: scegliere se è meglio avere tempi doppi oppure risparmiare sulla memoria
     public int bestResult() {
@@ -130,12 +139,12 @@ public class ConflictsSolver<T extends PlacedOverTime<T>> {
     }
     
     public List<SortedSet<T>> allGoodSolutions() {
-        analyzer.reset();
+        reset();
         SolutionBin bin = new SolutionBin(sortedSolutionItems);
-        bin = goodSolutionsFinder(bin);
+        goodSolutionsFinder(bin);
         return bin.allGoodSolutions;
     }
-    
+
     private SolutionBin goodSolutionsFinder(SolutionBin inputBin) {
         SortedSet<ConflictualItem<T>> addables = findAddables(inputBin.stillToChoose);
         SolutionBin outputBin = new SolutionBin(addables);

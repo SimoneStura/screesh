@@ -289,25 +289,202 @@
           "hosted": false
         }
       ]
+    },
+    {
+      "title": "Freaks",
+      "year": 1932,
+      "runtime": 64,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 22:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "27/11/2019 10:30",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Island of Lost Souls",
+      "year": 1932,
+      "runtime": 70,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 10:00",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "24/11/2019 18:00",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "26/11/2019 15:00",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Mummy",
+      "year": 1932,
+      "runtime": 73,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "24/11/2019 22:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 11:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Black Cat",
+      "year": 1934,
+      "runtime": 65,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "24/11/2019 20:30",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "27/11/2019 12:30",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Bride of Frankenstein",
+      "year": 1935,
+      "runtime": 75,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 20:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 22:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "The Devil Doll",
+      "year": 1936,
+      "runtime": 78,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 09:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "27/11/2019 11:45",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 14:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Dr. Jekyll and Mr. Hyde",
+      "year": 1941,
+      "runtime": 113,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "24/11/2019 09:15",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 20:15",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Cat People",
+      "year": 1942,
+      "runtime": 73,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "25/11/2019 22:15",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        },
+        {
+          "startTime": "26/11/2019 11:45",
+          "cinema": "REP",
+          "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "I Walked with a Zombie",
+      "year": 1943,
+      "runtime": 69,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "22/11/2019 17:30",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 15:00",
+          "cinema": "MAS",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
     }
   
   
   
 
-  ,
-    {
-      "title": "titolo1",
-      "year": 1966,
-      "runtime": 999,
-      "priority": 1,
-      "screenings": [
-        {
-          "startTime": "23/11/2019 00:00",
-          "cinema": "MAS",
-          "theater": 1,
-          "hosted": false
-        }
-      ]
-    }
   ]
 }
