@@ -22,9 +22,19 @@ public class Application {
         HashSet<Movie> currentSolutionMovies = new HashSet<>();
         ConflictsSolver<Screening> solver = new ConflictsSolver<>();
         List<SortedSet<Screening>> goodSolutions = new ArrayList<>();
-        
+    
+        HashSet<Movie> currentPriorityMovies = null;
         for (Integer currentPriority : ff.getPriorities()) {
-            HashSet<Movie> currentPriorityMovies = ff.getMoviesWithPriority(currentPriority);
+            if(currentPriorityMovies != null) {
+                for(Movie m : currentPriorityMovies) {
+                    List<Screening> shows = ff.getScreens(m);
+                    if (shows.size() == 1)
+                        solver.mustInclude(shows.get(0));
+                    else
+                        solver.mustIncludeOne(shows);
+                }
+            }
+            currentPriorityMovies = ff.getMoviesWithPriority(currentPriority);
             for (Movie conflMovie : currentPriorityMovies) {
                 List<Screening> showsForMovie = ff.getScreens(conflMovie);
                 solver.addGroup(showsForMovie);
@@ -47,6 +57,7 @@ public class Application {
                 for (ChoiceMade choice : newChoices) {
                     if (choice.isExcluded()) {
                         currentSolutionMovies.remove(choice.getMovie());
+                        currentPriorityMovies.remove(choice.getMovie());
                         List<Screening> showsToExclude = ff.getScreens(choice.getMovie());
                         solver.remove(showsToExclude);
                     } else {

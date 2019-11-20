@@ -46,7 +46,7 @@
       "title": "The Good Liar",
       "year": 2019,
       "runtime": 109,
-      "priority": 1,
+      "priority": 3,
       "screenings": [
         {
           "startTime": "24/11/2019 19:30",
@@ -86,7 +86,7 @@
       "title": "Il Ladro di Bambini",
       "year": 1992,
       "runtime": 114,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "27/11/2019 17:30",
@@ -97,24 +97,10 @@
       ]
     },
     {
-      "title": "L'Ultimo Piano",
-      "year": 2019,
-      "runtime": 87,
-      "priority": 1,
-      "screenings": [
-        {
-          "startTime": "29/11/2019 15:00",
-          "cinema": "REP",
-          "theater": 2,
-          "hosted": false
-        }
-      ]
-    },
-    {
       "title": "Sunset Boulevard",
       "year": 1950,
       "runtime": 110,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "23/11/2019 20:30",
@@ -134,7 +120,7 @@
       "title": "Ordet",
       "year": 1955,
       "runtime": 126,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "24/11/2019 18:00",
@@ -152,8 +138,8 @@
     },
     {
       "title": "Divorzio all'Italiana",
-      "year": 1979,
-      "runtime": 130,
+      "year": 1961,
+      "runtime": 105,
       "priority": 1,
       "screenings": [
         {
@@ -174,7 +160,7 @@
       "title": "Being There",
       "year": 1979,
       "runtime": 130,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "24/11/2019 15:00",
@@ -214,7 +200,7 @@
       "title": "Das Cabinet des Dr. Caligari",
       "year": 1920,
       "runtime": 76,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "23/11/2019 14:45",
@@ -238,12 +224,6 @@
       "screenings": [
         {
           "startTime": "24/11/2019 15:30",
-          "cinema": "REP",
-          "theater": 4,
-          "hosted": false
-        },
-        {
-          "startTime": "25/11/2019 09:45",
           "cinema": "REP",
           "theater": 4,
           "hosted": false
@@ -277,7 +257,7 @@
       "priority": 1,
       "screenings": [
         {
-          "startTime": "23/11/2019 17:48",
+          "startTime": "23/11/2019 17:45",
           "cinema": "REP",
           "theater": 4,
           "hosted": false
@@ -340,7 +320,7 @@
       "title": "The Mummy",
       "year": 1932,
       "runtime": 73,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "24/11/2019 22:15",
@@ -377,7 +357,7 @@
       ]
     },
     {
-      "title": "The Bride of Frankenstein",
+      "title": "Bride of Frankenstein",
       "year": 1935,
       "runtime": 75,
       "priority": 1,
@@ -446,7 +426,7 @@
       "title": "Cat People",
       "year": 1942,
       "runtime": 73,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "25/11/2019 22:15",
@@ -466,14 +446,8 @@
       "title": "I Walked with a Zombie",
       "year": 1943,
       "runtime": 69,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
-        {
-          "startTime": "22/11/2019 17:30",
-          "cinema": "MAS",
-          "theater": 3,
-          "hosted": false
-        },
         {
           "startTime": "30/11/2019 15:00",
           "cinema": "MAS",
@@ -509,10 +483,10 @@
       ]
     },
     {
-      "title": "The Creature from the Black Lagoon",
+      "title": "Creature from the Black Lagoon",
       "year": 1954,
       "runtime": 79,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "25/11/2019 17:45",
@@ -525,7 +499,7 @@
     {
       "title": "The Curse of Frankenstein/The Revenge of Frankenstein",
       "year": 1957,
-      "runtime": 195,
+      "runtime": 210,
       "priority": 1,
       "screenings": [
         {
@@ -566,7 +540,7 @@
       "title": "The Tingler",
       "year": 1959,
       "runtime": 82,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "26/11/2019 17:30",
@@ -586,7 +560,7 @@
       "title": "La Maschera del Demonio",
       "year": 1960,
       "runtime": 87,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "27/11/2019 20:15",
@@ -626,7 +600,7 @@
       "title": "Pit and the Pendulum",
       "year": 1961,
       "runtime": 80,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "26/11/2019 17:45",
@@ -646,7 +620,7 @@
       "title": "The Curse of the Werefolf",
       "year": 1961,
       "runtime": 93,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "27/11/2019 22:30",
@@ -666,7 +640,7 @@
       "title": "The Innocents",
       "year": 1961,
       "runtime": 100,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "27/11/2019 19:45",
@@ -686,7 +660,7 @@
       "title": "L'Orribile Segreto del Dr. Hichcock",
       "year": 1962,
       "runtime": 88,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "29/11/2019 17:45",
@@ -706,7 +680,7 @@
       "title": "The Birds",
       "year": 1963,
       "runtime": 119,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "27/11/2019 22:00",
@@ -792,7 +766,7 @@
       "title": "Dr. Terror's House of Horrors",
       "year": 1965,
       "runtime": 98,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "28/11/2019 17:15",
@@ -832,7 +806,7 @@
       "title": "The Plague of the Zombies",
       "year": 1966,
       "runtime": 90,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "25/11/2019 11:45",
@@ -878,7 +852,7 @@
       "title": "Rosemary's Baby",
       "year": 1968,
       "runtime": 137,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "23/11/2019 11:45",
@@ -898,7 +872,7 @@
       "title": "Toby Dammit",
       "year": 1968,
       "runtime": 43,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "28/11/2019 22:45",
@@ -918,7 +892,7 @@
       "title": "Dr. Jekyll & Sister Hyde",
       "year": 1971,
       "runtime": 97,
-      "priority": 1,
+      "priority": 2,
       "screenings": [
         {
           "startTime": "27/11/2019 14:45",
@@ -936,6 +910,20 @@
           "startTime": "29/11/2019 19:30",
           "cinema": "REP",
           "theater": 4,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "titolo1",
+      "year": 1966,
+      "runtime": 999,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "333/11/2019 000:000",
+          "cinema": "MAS",
+          "theater": 444,
           "hosted": false
         }
       ]

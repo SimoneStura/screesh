@@ -25,10 +25,10 @@ public class SolutionPrinter {
         LocalDateTime lastEnding = null;
         for(Screening s : solution) {
             LocalDate currentDate = LocalDate.from(s.getStartTime());
-            if(!currentDate.equals(lastDate))
-                printDay(currentDate);
     
             printWaiting(lastEnding, s.getStartTime());
+            if(!currentDate.equals(lastDate))
+                printDay(currentDate);
             printScreening(s);
             
             lastEnding = s.getEndTime();

@@ -9,9 +9,9 @@
       "priority": 1,
       "screenings": [
         {
-          "startTime": "23/11/2019 00:00",
+          "startTime": "333/11/2019 000:000",
           "cinema": "MAS",
-          "theater": 1,
+          "theater": 444,
           "hosted": false
         }
       ]
