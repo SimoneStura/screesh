@@ -33,12 +33,6 @@
           "cinema": "REP",
           "theater": 3,
           "hosted": false
-        },
-        {
-          "startTime": "30/11/2019 20:00",
-          "cinema": "MAS",
-          "theater": 1,
-          "hosted": false
         }
       ]
     },
@@ -64,20 +58,6 @@
           "startTime": "26/11/2019 17:45",
           "cinema": "REP",
           "theater": 1,
-          "hosted": false
-        }
-      ]
-    },
-    {
-      "title": "Knives Out",
-      "year": 2019,
-      "runtime": 130,
-      "priority": 1,
-      "screenings": [
-        {
-          "startTime": "30/11/2019 22:00",
-          "cinema": "REP",
-          "theater": 3,
           "hosted": false
         }
       ]
@@ -261,12 +241,6 @@
           "cinema": "REP",
           "theater": 4,
           "hosted": false
-        },
-        {
-          "startTime": "30/11/2019 20:30",
-          "cinema": "MAS",
-          "theater": 3,
-          "hosted": false
         }
       ]
     },
@@ -366,12 +340,6 @@
           "startTime": "23/11/2019 20:15",
           "cinema": "REP",
           "theater": 4,
-          "hosted": false
-        },
-        {
-          "startTime": "30/11/2019 22:30",
-          "cinema": "MAS",
-          "theater": 3,
           "hosted": false
         }
       ]
@@ -486,7 +454,7 @@
       "title": "Creature from the Black Lagoon",
       "year": 1954,
       "runtime": 79,
-      "priority": 2,
+      "priority": 1,
       "screenings": [
         {
           "startTime": "25/11/2019 17:45",
@@ -793,12 +761,6 @@
           "cinema": "MAS",
           "theater": 3,
           "hosted": false
-        },
-        {
-          "startTime": "30/11/2019 19:30",
-          "cinema": "REP",
-          "theater": 4,
-          "hosted": false
         }
       ]
     },
@@ -859,12 +821,6 @@
           "cinema": "REP",
           "theater": 4,
           "hosted": false
-        },
-        {
-          "startTime": "30/11/2019 22:15",
-          "cinema": "REP",
-          "theater": 4,
-          "hosted": false
         }
       ]
     },
@@ -915,15 +871,301 @@
       ]
     },
     {
-      "title": "titolo1",
-      "year": 1966,
-      "runtime": 999,
+      "title": "Algunas Bestias",
+      "year": 2019,
+      "runtime": 97,
       "priority": 1,
       "screenings": [
         {
-          "startTime": "333/11/2019 000:000",
+          "startTime": "23/11/2019 17:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "24/11/2019 09:45",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "25/11/2019 22:30",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Dylda / Beanpole",
+      "year": 2019,
+      "runtime": 130,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "29/11/2019 09:00",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 17:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 11:45",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "El Hoyo / The Platform",
+      "year": 2019,
+      "runtime": 90,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "27/11/2019 22:15",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 11:30",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 21:45",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Ms. White Light",
+      "year": 2019,
+      "runtime": 97,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "24/11/2019 22:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "25/11/2019 12:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "26/11/2019 20:15",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Now Is Everything",
+      "year": 2019,
+      "runtime": 80,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "28/11/2019 19:30",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 12:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 17:00",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Raf",
+      "year": 2019,
+      "runtime": 91,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "26/11/2019 22:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "27/11/2019 12:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 20:15",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Le Rêve de Noura",
+      "year": 2019,
+      "runtime": 90,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "24/11/2019 17:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "25/11/2019 10:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "26/11/2019 22:30",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Colpiti al Cuore",
+      "year": 2019,
+      "runtime": 50,
+      "priority": 2,
+      "screenings": [
+        {
+          "startTime": "26/11/2019 16:00",
+          "cinema": "REP",
+          "theater": 2,
+          "hosted": false
+        },
+        {
+          "startTime": "29/11/2019 11:45",
+          "cinema": "REP",
+          "theater": 2,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Guns Akimbo",
+      "year": 2019,
+      "runtime": 95,
+      "priority": 2,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 22:15",
           "cinema": "MAS",
-          "theater": 444,
+          "theater": 1,
+          "hosted": false
+        },
+        {
+          "startTime": "24/11/2019 15:15",
+          "cinema": "MAS",
+          "theater": 1,
+          "hosted": false
+        },
+        {
+          "startTime": "25/11/2019 16:00",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Letto N.6",
+      "year": 2019,
+      "runtime": 117,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "29/11/2019 22:00",
+          "cinema": "MAS",
+          "theater": 1,
+          "hosted": false
+        },
+        {
+          "startTime": "30/11/2019 12:00",
+          "cinema": "MAS",
+          "theater": 1,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Metamorphosis",
+      "year": 2019,
+      "runtime": 113,
+      "priority": 3,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 17:30",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        },
+        {
+          "startTime": "24/11/2019 15:15",
+          "cinema": "REP",
+          "theater": 1,
+          "hosted": false
+        },
+        {
+          "startTime": "26/11/2019 22:15",
+          "cinema": "REP",
+          "theater": 2,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "Starfish",
+      "year": 2019,
+      "runtime": 99,
+      "priority": 2,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 14:45",
+          "cinema": "MAS",
+          "theater": 1,
+          "hosted": false
+        },
+        {
+          "startTime": "27/11/2019 22:45",
+          "cinema": "MAS",
+          "theater": 1,
+          "hosted": false
+        },
+        {
+          "startTime": "28/11/2019 12:00",
+          "cinema": "MAS",
+          "theater": 1,
           "hosted": false
         }
       ]

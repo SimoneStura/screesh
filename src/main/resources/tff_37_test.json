@@ -1,0 +1,106 @@
+{
+  "festivalName": "TORINO FILM FESTIVAL",
+  "minimumToWaitInMinutes": 10,
+  "movies": [
+    {
+      "title": "A",
+      "year": 2019,
+      "runtime": 100,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 10:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "23/11/2019 14:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "B",
+      "year": 2019,
+      "runtime": 100,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 14:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "23/11/2019 18:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "C",
+      "year": 2019,
+      "runtime": 100,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 18:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "23/11/2019 22:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "D",
+      "year": 2019,
+      "runtime": 100,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 22:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "23/11/2019 10:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    },
+    {
+      "title": "E",
+      "year": 2019,
+      "runtime": 100,
+      "priority": 1,
+      "screenings": [
+        {
+          "startTime": "23/11/2019 14:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        },
+        {
+          "startTime": "23/11/2019 10:00",
+          "cinema": "REP",
+          "theater": 3,
+          "hosted": false
+        }
+      ]
+    }
+  ]
+}

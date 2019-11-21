@@ -1,6 +1,8 @@
 package com.screesh.model;
 
 import com.screesh.solver.PlacedOverTime;
+import org.apache.commons.lang3.StringUtils;
+import org.junit.Assert;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
@@ -107,10 +109,16 @@ public class Screening implements PlacedOverTime<Screening> {
     //TODO: centralizzare dove compete
     @Override
     public boolean isInConflictWith(Screening that) {
+        if ((StringUtils.equals("Divorzio all'Italiana", this.screened.getTitle()) &&
+                StringUtils.equals("Creature from the Black Lagoon", that.screened.getTitle()) ||
+                StringUtils.equals("Divorzio all'Italiana", that.screened.getTitle()) &&
+                        StringUtils.equals("Creature from the Black Lagoon", this.screened.getTitle())))
+            Assert.assertTrue(true);
+        
         Duration gapBetween = this.gap(that);
-        if(gapBetween == null)
+        if (gapBetween == null)
             return true;
-        if(gapBetween.isNegative()) {
+        if (gapBetween.isNegative()) {
             gapBetween = gapBetween.negated()
                     .minusMinutes(that.additionalMinutes);
         } else {
